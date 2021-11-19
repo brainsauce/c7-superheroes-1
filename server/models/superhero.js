@@ -21,7 +21,12 @@ async function listSuperheros() {
     return Superhero.find({})
 }
 
+async function findById(id) {
+    return Superhero.findById(id)
+}
+
 module.exports = {
     createSuperhero,
-    listSuperheros
+    listSuperheros,
+    findById
 }
