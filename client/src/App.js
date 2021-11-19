@@ -11,15 +11,21 @@ function App() {
 
   return (
     <div className="App">
-      { selectedSuperheroId ? 
+      {/* { selectedSuperheroId ? 
           <div>
             <button onClick={() => setSelectedSuperheroId(undefined)}>Go Back</button>
             <SuperheroDetail  superheroId={selectedSuperheroId}/> 
           </div>
         : 
         <SuperheroList setSelectedSuperheroId={setSelectedSuperheroId} />  
+      } */}
+
+      { !selectedSuperheroId && <SuperheroList setSelectedSuperheroId={setSelectedSuperheroId} />  }
+      { selectedSuperheroId && <div>
+            <button onClick={() => setSelectedSuperheroId(undefined)}>Go Back</button>
+            <SuperheroDetail  superheroId={selectedSuperheroId}/> 
+          </div>
       }
-      
     </div>
   );
 }
