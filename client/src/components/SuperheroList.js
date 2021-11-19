@@ -20,6 +20,11 @@ const SuperheroList = ({setSelectedSuperheroId}) => {
     fetchData()
   }, [])
 
+  function selectSuperhero(id) {
+    console.log('selectSuperhero called on id', id )
+    setSelectedSuperheroId(id)
+  }
+
 
   return (
     <div>
@@ -35,11 +40,13 @@ const SuperheroList = ({setSelectedSuperheroId}) => {
         <tbody>
           {
             superheroes.map((hero, index) => {
-              function selectSuperhero() {
-                console.log('selectSuperhero called on', hero)
-                setSelectedSuperheroId(hero._id)
-              }
-              return <SuperheroRow key={index} onSuperheroSelected={selectSuperhero} name={hero.superheroName} alterEgo={hero.alterEgo} homeCity={hero.homeCity} />
+              return <SuperheroRow 
+                key={index} 
+                onSuperheroSelected={() => selectSuperhero(hero._id)} 
+                name={hero.superheroName} 
+                alterEgo={hero.alterEgo} 
+                homeCity={hero.homeCity} 
+              />
             })
           }
         </tbody>
