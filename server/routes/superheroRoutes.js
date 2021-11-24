@@ -15,5 +15,11 @@ router.get('/superhero/:id', async (req, res) => {
     res.send(superhero)
 })
 
+router.post('/superhero', async (req, res) => {
+    let newSuperhero = req.body
+    let createdId = await superheroModel.createSuperhero(newSuperhero)
+    res.send(createdId)
+})
+
 
 module.exports = router

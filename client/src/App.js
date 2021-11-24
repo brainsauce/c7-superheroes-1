@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import SuperheroDetail from './components/SuperheroDetail';
 import SuperheroList from './components/SuperheroList';
+import SuperheroEditForm from './components/SuperheroEditForm';
 
 import './App.css';
 
@@ -20,7 +21,10 @@ function App() {
         <SuperheroList setSelectedSuperheroId={setSelectedSuperheroId} />  
       } */}
 
-      { !selectedSuperheroId && <SuperheroList setSelectedSuperheroId={setSelectedSuperheroId} />  }
+      { !selectedSuperheroId && <div>
+          <SuperheroList setSelectedSuperheroId={setSelectedSuperheroId} /> 
+          <SuperheroEditForm />
+        </div> }
       { selectedSuperheroId && <div>
             <button onClick={() => setSelectedSuperheroId(undefined)}>Go Back</button>
             <SuperheroDetail  superheroId={selectedSuperheroId}/> 
