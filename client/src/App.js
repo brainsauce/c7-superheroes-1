@@ -10,6 +10,16 @@ function App() {
 
   const [selectedSuperheroId, setSelectedSuperheroId] = useState()
 
+  async function createSuperhero(newSuperhero) {
+    await fetch('/api/superhero', {
+      method: "POST",
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newSuperhero)
+    })
+  }
+
   return (
     <div className="App">
       {/* { selectedSuperheroId ? 
@@ -23,7 +33,7 @@ function App() {
 
       { !selectedSuperheroId && <div>
           <SuperheroList setSelectedSuperheroId={setSelectedSuperheroId} /> 
-          <SuperheroEditForm />
+          <SuperheroEditForm onSave={createSuperhero} />
         </div> }
       { selectedSuperheroId && <div>
             <button onClick={() => setSelectedSuperheroId(undefined)}>Go Back</button>

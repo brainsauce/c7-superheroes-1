@@ -25,8 +25,15 @@ async function findById(id) {
     return Superhero.findById(id)
 }
 
+async function update(id, newSuperheroData) {
+    return Superhero.findByIdAndUpdate(id, newSuperheroData, {
+        returnDocument: "after"
+    })
+}
+
 module.exports = {
     createSuperhero,
     listSuperheros,
-    findById
+    findById,
+    update
 }
