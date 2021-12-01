@@ -1,45 +1,27 @@
-import { useState } from 'react'
-import SuperheroDetail from './components/SuperheroDetail';
-import SuperheroList from './components/SuperheroList';
-import SuperheroEditForm from './components/SuperheroEditForm';
+import { Routes, Route, Link } from "react-router-dom";
+
+import SuperheroListPage from './pages/SuperheroListPage';
+import CreateSuperheroPage from './pages/CreateSuperheroPage';
+import SuperheroDetailPage from './pages/SuperheroDetailPage';
 
 import './App.css';
+import SuperheroEditPage from "./pages/SuperheroEditPage";
 
 
 function App() {
 
-  const [selectedSuperheroId, setSelectedSuperheroId] = useState()
-
-  async function createSuperhero(newSuperhero) {
-    await fetch('/api/superhero', {
-      method: "POST",
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newSuperhero)
-    })
-  }
-
   return (
     <div className="App">
-      {/* { selectedSuperheroId ? 
-          <div>
-            <button onClick={() => setSelectedSuperheroId(undefined)}>Go Back</button>
-            <SuperheroDetail  superheroId={selectedSuperheroId}/> 
-          </div>
-        : 
-        <SuperheroList setSelectedSuperheroId={setSelectedSuperheroId} />  
-      } */}
-
-      { !selectedSuperheroId && <div>
-          <SuperheroList setSelectedSuperheroId={setSelectedSuperheroId} /> 
-          <SuperheroEditForm onSave={createSuperhero} />
-        </div> }
-      { selectedSuperheroId && <div>
-            <button onClick={() => setSelectedSuperheroId(undefined)}>Go Back</button>
-            <SuperheroDetail  superheroId={selectedSuperheroId}/> 
-          </div>
-      }
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/new">New</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={ <SuperheroListPage />} />
+        <Route path="/new" element={ <CreateSuperheroPage /> } />
+        <Route path="/superhero/:id" element={ <SuperheroDetailPage /> } />
+        <Route path="/superhero/:id/edit" element={ <SuperheroEditPage /> } />
+      </Routes>         
     </div>
   );
 }
