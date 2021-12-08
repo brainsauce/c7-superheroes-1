@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: monospace;
 }
 
 .App-logo {
@@ -41,6 +42,17 @@
   display: flex;
   justify-content: space-evenly;
   width: 400px;
-  margin: auto;
-  
+  margin: 20px auto;
+}
+.btn-sm {
+  margin-left: 5px;
+  padding: 1px 5px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+th {
+  font-weight:900;
+  text-decoration: underline;
 }

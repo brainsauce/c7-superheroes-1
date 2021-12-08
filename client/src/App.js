@@ -11,8 +11,8 @@ function App() {
     return (
         <div className="App">
             <nav className="nav">
-                <Link to="/">Home</Link>
-                <Link to="/new">New</Link>
+                <Link className="btn btn-primary" to="/">Home</Link>
+                <Link className= "btn btn-primary" to="/new">New</Link>
             </nav>
             <Routes>
                 <Route path="/" element={<SuperheroListPage />} />
