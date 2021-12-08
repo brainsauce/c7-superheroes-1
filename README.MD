@@ -15,7 +15,7 @@ Ooops, you forgot to load some data!
 ## Developer Setup
 
 ### Seed Data
-Your connection string to the database can be found at models/mongooseDb.js.  Eventually this should be an environment variable.  Load your initial data before you launch the server
+Your connection string to the database can be found at models/mongooseDb.js.  Eventually this should be an environment variable.  Load your initial data before you launch the server.
 
     cd server
     node models/loadInitialData
