@@ -1,4 +1,3 @@
-
 const express = require('express')
 const router = express.Router()
 
@@ -16,17 +15,22 @@ router.post('/superhero', async (req, res) => {
 })
 
 router.get('/superhero/:id', async (req, res) => {
-    let id =req.params.id
+    let id = req.params.id
     let superhero = await superheroModel.findById(id)
     res.send(superhero)
 })
 
 router.post('/superhero/:id', async (req, res) => {
-    let id =req.params.id
+    let id = req.params.id
     let updatedSuperhero = req.body
-    console.log("updating superhero", id, "with", updatedSuperhero)
+    console.log('updating superhero', id, 'with', updatedSuperhero)
     let superhero = await superheroModel.update(id, updatedSuperhero)
     res.send(superhero)
 })
-
+router.delete('/superhero/:id', async (req, res) => {
+    let id = req.params.id
+    console.log('deleting superhero', id)
+    let deletedSuperhero = await superheroModel.deleteSuperhero(id)
+    res.send(deletedSuperhero)
+})
 module.exports = router

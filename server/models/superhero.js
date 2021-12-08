@@ -1,15 +1,13 @@
 const mongoose = require('./mongooseDb')
 
-const Superhero = mongoose.model('Superhero', 
-    {
-        "superheroName": String, 
-        "alterEgo": String,
-        "homeCity": String,
-        "costume": String,
-        "superpowers": [String], 
-        "nemesis": String
-    }
-)
+const Superhero = mongoose.model('Superhero', {
+    superheroName: String,
+    alterEgo: String,
+    homeCity: String,
+    costume: String,
+    superpowers: [String],
+    nemesis: String,
+})
 
 async function createSuperhero(superheroData) {
     let newSuperhero = new Superhero(superheroData)
@@ -27,13 +25,18 @@ async function findById(id) {
 
 async function update(id, newSuperheroData) {
     return Superhero.findByIdAndUpdate(id, newSuperheroData, {
-        returnDocument: "after"
+        returnDocument: 'after',
     })
+}
+
+async function deleteSuperhero(id) {
+    return Superhero.findByIdAndDelete(id)
 }
 
 module.exports = {
     createSuperhero,
     listSuperheros,
     findById,
-    update
+    update,
+    deleteSuperhero,
 }
