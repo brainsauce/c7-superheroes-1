@@ -5,6 +5,7 @@ const router = express.Router()
 const superheroModel = require('../models/superhero')
 
 router.get('/superhero', async (req, res) => {
+    console.log('getting all superheroes')
     let superheroList = await superheroModel.listSuperheros()
     res.send(superheroList)
 })
