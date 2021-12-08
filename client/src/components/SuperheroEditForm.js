@@ -67,13 +67,13 @@ const SuperheroEditForm = ({existingValues, onSave}) => {
                         superpowers.map((power, index) => (
                             <div key={index}>
                                 {power}
-                                <button onClick={() => { onRemoveSuperpower(index)}}>X</button>
+                                <button className="btn-sm btn-danger" onClick={() => { onRemoveSuperpower(index)}}>X</button>
                             </div>
                         ))
                     }
                     <div>
                         <input value={powerToAdd} onChange={(event) => onInputUpdate(event, setPowerToAdd) } />
-                        <button onClick={onAddSuperpower}>Add</button>
+                        <button className="btn-sm btn-primary" onClick={onAddSuperpower}>Add</button>
                     </div>
                 </div>
                 <label className="field-title">Costume</label>
@@ -81,7 +81,7 @@ const SuperheroEditForm = ({existingValues, onSave}) => {
                 <label className="field-title" >Nemesis</label>
                 <input value={nemesis} onChange={(event) => onInputUpdate(event, setNemesis) }/>
             </div>
-            <button onClick={postData} >Save Superhero</button>
+            <button className="btn btn-primary" onClick={postData} >Save Superhero</button>
 
         </div>
     )

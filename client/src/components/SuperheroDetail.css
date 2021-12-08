@@ -1,6 +1,8 @@
 .detail-fields {
     display: grid;
     grid-template-columns: auto auto;
+    width: max-content;
+    margin: 20px auto;
 }
 
 .field-title {

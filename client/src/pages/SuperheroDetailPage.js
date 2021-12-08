@@ -7,7 +7,7 @@ const SuperheroDetailPage = () => {
   return (
      <div>
        <SuperheroDetail superheroId={params.id}/>
-       <Link to="edit"> EDIT </Link>
+       <Link className="btn btn-primary" to="edit"> Edit </Link>
      </div>
    ) 
 }

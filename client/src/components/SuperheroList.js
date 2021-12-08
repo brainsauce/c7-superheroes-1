@@ -12,7 +12,7 @@ const SuperheroRow = ({
         <td>{alterEgo}</td>
         <td>{homeCity}</td>
         <td>
-            <button onClick={() => deleteSuperhero()}>Delete</button>
+            <button className="btn-sm btn-danger" onClick={() => deleteSuperhero()}>Delete</button>
         </td>
     </tr>
 )
