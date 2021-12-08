@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <nav>
+      <nav className="nav">
         <Link to="/">Home</Link>
         <Link to="/new">New</Link>
       </nav>
