@@ -20,7 +20,12 @@ async function listUsers() {
 }
 
 async function findById(id) {
-    return User.findById(id)
+    let fullUserRecord = await User.findById(id)
+    let userToReturn = {
+        id: fullUserRecord.id,
+        username: fullUserRecord.username
+    }
+    return userToReturn
 }
 
 

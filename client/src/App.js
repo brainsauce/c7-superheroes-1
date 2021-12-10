@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom'
 import SuperheroListPage from './pages/SuperheroListPage'
 import CreateSuperheroPage from './pages/CreateSuperheroPage'
 import SuperheroDetailPage from './pages/SuperheroDetailPage'
+import LoginPage from './pages/LoginPage'
 
 import './App.css'
 import SuperheroEditPage from './pages/SuperheroEditPage'
@@ -16,6 +17,7 @@ function App() {
             </nav>
             <Routes>
                 <Route path="/" element={<SuperheroListPage />} />
+                <Route path="/login" element={<LoginPage />} />
                 <Route path="/new" element={<CreateSuperheroPage />} />
                 <Route
                     path="/superhero/:id"

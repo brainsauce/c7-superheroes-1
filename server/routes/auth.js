@@ -46,6 +46,10 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
   console.log('User login has succeeded!')
   console.log('Req.user is', req.user)
   res.sendStatus(200)
-});
+})
+
+router.get('/loggedInUser', function(req, res) {
+    res.send(req.user)
+})
 
 module.exports = router
