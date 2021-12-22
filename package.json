@@ -16,5 +16,8 @@
     "start-server": "cd server && npm start && cd .."
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react-router-dom": "^6.0.2"
+  }
 }
